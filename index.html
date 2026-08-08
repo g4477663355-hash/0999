@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>在宅データ入力スタッフ募集｜スマートソーシャル株式会社</title>
+<meta name="description" content="子どもが寝たあとの30分から。在宅データ入力のスタッフを募集しています。1件【00】円の出来高制。登録料・教材費は0円。扶養の範囲で働きたい方もご相談ください。">
+
+<meta property="og:title" content="在宅データ入力スタッフ募集｜スマートソーシャル株式会社">
+<meta property="og:description" content="子どもが寝たあとの30分から。報酬も業務内容も、応募前に全部公開しています。">
+<meta property="og:type" content="website">
+<meta property="og:image" content="ogp.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=BIZ+UDPGothic:wght@400;700&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   主婦層向け・スマホ基準の1カラムLP（データ入力のみ）
+   ・ボタン色はLINEグリーン1色のみ。小豆色は構造にのみ使う。
+   ・見出しは明朝。暮らし系の雑誌の温度感に寄せ、
+     「稼げます」系の煽りLPとの距離をとるため。
+   ・本文はBIZ UDP（ユニバーサルデザインフォント）で可読性優先。
+   ============================================================ */
+:root{
+  --bg:      #F4F0F0;
+  --card:    #FFFFFF;
+  --ink:     #251E21;
+  --soft:    #6B5C61;
+  --rule:    #E0D6D8;
+  --azuki:   #8A4055;      /* 構造色。ボタンには使わない */
+  --azuki-b: #F5E9EC;
+  --green:   #06C755;      /* LINE。CTA専用 */
+  --green-d: #04A445;
+  --alert:   #B03A2E;
+  --ok:      #2E7D52;
+
+  --f-disp: "Shippori Mincho B1", serif;
+  --f-body: "BIZ UDPGothic", sans-serif;
+  --f-num:  "Roboto Mono", monospace;
+
+  --col: 520px;
+}
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:var(--f-body); font-size:16.5px; line-height:1.95;
+  -webkit-font-smoothing:antialiased;
+}
+img{ max-width:100%; display:block; }
+.col{ width:100%; max-width:var(--col); margin-inline:auto; padding-inline:20px; }
+
+.sec{ padding:46px 0; }
+.sec--card{ background:var(--card); }
+.eyebrow{
+  font-family:var(--f-num); font-size:10.5px; letter-spacing:.18em; color:var(--azuki);
+  display:flex; align-items:center; gap:9px; margin:0 0 12px;
+}
+.eyebrow::after{ content:""; flex:1; height:1px; background:var(--rule); }
+.h2{ font-family:var(--f-disp); font-weight:800; font-size:25px; line-height:1.55; margin:0 0 10px; }
+.lead{ color:var(--soft); font-size:14.5px; margin:0 0 26px; }
+
+/* CTA -------------------------------------------------------- */
+.cta{
+  display:flex; align-items:center; justify-content:center; gap:9px; width:100%;
+  font-family:var(--f-body); font-weight:700; font-size:17px;
+  background:var(--green); color:#fff; text-decoration:none;
+  padding:17px 20px; border-radius:12px; box-shadow:0 3px 0 var(--green-d);
+  transition:transform .12s ease, box-shadow .12s ease;
+}
+.cta:hover{ transform:translateY(-1px); box-shadow:0 4px 0 var(--green-d); }
+.cta:active{ transform:translateY(2px); box-shadow:0 1px 0 var(--green-d); }
+.cta small{ font-weight:400; font-size:11.5px; opacity:.92; }
+.cta-note{ font-size:12px; color:var(--soft); text-align:center; margin:10px 0 0; line-height:1.75; }
+:focus-visible{ outline:3px solid var(--azuki); outline-offset:3px; }
+
+/* ファーストビュー -------------------------------------------- */
+.fv{ background:var(--card); padding:26px 0 36px; border-bottom:1px solid var(--rule); }
+.fv__co{ font-family:var(--f-num); font-size:10.5px; letter-spacing:.08em; color:var(--soft); margin:0 0 16px; }
+.fv h1{
+  font-family:var(--f-disp); font-weight:800; font-size:clamp(26px,7.2vw,33px);
+  line-height:1.6; margin:0 0 12px;
+}
+.fv h1 em{ font-style:normal; background:linear-gradient(transparent 62%, var(--azuki-b) 62%); }
+.fv__sub{ font-size:14.5px; color:var(--soft); margin:0 0 22px; }
+
+.facts{ display:grid; gap:1px; background:var(--rule); border:1px solid var(--rule); border-radius:10px; overflow:hidden; margin-bottom:22px; }
+.facts div{ background:var(--card); display:flex; align-items:baseline; gap:12px; padding:13px 15px; }
+.facts dt{ font-family:var(--f-disp); font-weight:600; font-size:12px; color:var(--azuki); min-width:4.5em; }
+.facts dd{ margin:0; font-size:15.5px; font-weight:700; }
+.facts dd .num{ font-family:var(--f-num); font-weight:600; font-size:21px; }
+.facts dd small{ font-weight:400; font-size:12.5px; color:var(--soft); display:block; line-height:1.7; }
+
+/* 生活の時間帯 ------------------------------------------------ */
+.slots{ display:grid; gap:10px; }
+.slot{ background:var(--bg); border-radius:10px; padding:15px 16px; display:flex; gap:13px; align-items:flex-start; }
+.sec--card .slot{ background:var(--bg); }
+.slot__t{ font-family:var(--f-num); font-size:11.5px; color:var(--azuki); background:var(--azuki-b); padding:3px 8px; border-radius:4px; flex:none; margin-top:4px; }
+.slot b{ font-family:var(--f-disp); font-weight:600; font-size:16px; display:block; }
+.slot small{ display:block; font-size:13px; color:var(--soft); line-height:1.75; }
+
+/* 扶養シミュレーター（署名要素） ------------------------------ */
+.fuyou{ background:var(--card); border:1px solid var(--azuki); border-radius:12px; overflow:hidden; }
+.sec--card .fuyou{ background:var(--bg); }
+.fuyou__head{ background:var(--azuki); color:#fff; padding:11px 16px; font-family:var(--f-disp); font-weight:600; font-size:14px; }
+.fuyou__body{ padding:20px 16px 22px; }
+.fuyou__lab{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom:4px; }
+.fuyou__lab span{ font-family:var(--f-disp); font-weight:600; font-size:13.5px; }
+.fuyou__lab b{ font-family:var(--f-num); font-weight:600; font-size:20px; }
+input[type=range]{ width:100%; accent-color:var(--azuki); height:28px; }
+.fuyou__year{ text-align:center; padding:12px 0 18px; border-bottom:1px dashed var(--rule); margin-bottom:18px; }
+.fuyou__year span{ font-size:13px; color:var(--soft); display:block; }
+.fuyou__year b{ font-family:var(--f-num); font-weight:600; font-size:32px; }
+
+.gauge{ margin-bottom:20px; }
+.gauge__top{ display:flex; align-items:baseline; justify-content:space-between; gap:8px; margin-bottom:6px; }
+.gauge__name{ font-family:var(--f-disp); font-weight:600; font-size:14px; }
+.gauge__lim{ font-family:var(--f-num); font-size:11.5px; color:var(--soft); }
+.gauge__bar{ height:9px; background:var(--rule); border-radius:5px; overflow:hidden; }
+.gauge__fill{ height:100%; width:0; background:var(--ok); border-radius:5px; transition:width .2s ease, background-color .2s ease; }
+.gauge__fill.over{ background:var(--alert); }
+.gauge__msg{ font-size:13px; margin:6px 0 0; color:var(--soft); }
+.gauge__msg b{ color:var(--ok); }
+.gauge__msg b.over{ color:var(--alert); }
+.fuyou__note{ font-size:11.5px; color:var(--soft); line-height:1.8; margin:16px 0 0; padding-top:14px; border-top:1px dashed var(--rule); }
+
+/* 用意するもの ------------------------------------------------ */
+.needs{ list-style:none; margin:0; padding:0; }
+.needs li{ display:flex; gap:12px; align-items:flex-start; padding:14px 0; border-bottom:1px solid var(--rule); }
+.needs li:last-child{ border-bottom:0; }
+.needs__ic{ flex:none; width:26px; height:26px; border-radius:50%; background:var(--azuki-b); color:var(--azuki); font-family:var(--f-num); font-size:12px; font-weight:600; display:grid; place-content:center; margin-top:5px; }
+.needs b{ font-family:var(--f-disp); font-weight:600; font-size:16px; display:block; }
+.needs small{ display:block; font-size:13px; color:var(--soft); line-height:1.75; }
+
+/* なぜ募集しているか ------------------------------------------ */
+.why{ background:var(--azuki-b); border-radius:12px; padding:20px 18px; }
+.why h3{ font-family:var(--f-disp); font-weight:800; font-size:18px; margin:0 0 8px; color:var(--azuki); }
+.why p{ margin:0; font-size:14.5px; line-height:1.9; }
+
+/* 表 ---------------------------------------------------------- */
+.table{ border:1px solid var(--rule); border-radius:10px; overflow:hidden; background:var(--card); }
+.sec--card .table{ background:var(--bg); }
+.table dl{ margin:0; }
+.table__row{ display:grid; grid-template-columns:7.5em 1fr; border-bottom:1px solid var(--rule); }
+.table__row:last-child{ border-bottom:0; }
+.table dt{ padding:12px 14px; font-family:var(--f-disp); font-weight:600; font-size:12.5px; color:var(--azuki); border-right:1px solid var(--rule); }
+.table dd{ margin:0; padding:12px 14px; font-size:14px; }
+.table dd b{ font-family:var(--f-num); }
+@media(max-width:400px){
+  .table__row{ grid-template-columns:1fr; }
+  .table dt{ border-right:0; padding-bottom:0; }
+}
+
+/* チャット型Q&A ----------------------------------------------- */
+.thread{ display:flex; flex-direction:column; gap:14px; }
+.msg{ max-width:89%; font-size:14.5px; line-height:1.85; }
+.msg--q{ align-self:flex-start; background:var(--bg); border-radius:15px 15px 15px 4px; padding:12px 15px; font-family:var(--f-disp); font-weight:600; }
+.sec--card .msg--q{ background:var(--bg); }
+.msg--a{ align-self:flex-end; background:var(--card); border:1px solid var(--azuki); border-radius:15px 15px 4px 15px; padding:12px 15px; }
+.sec--card .msg--a{ background:var(--card); }
+.msg--a::before{
+  content:"スマートソーシャル"; display:block; font-family:var(--f-num); font-size:9.5px; letter-spacing:.08em;
+  color:var(--azuki); margin-bottom:4px;
+}
+
+/* 流れ -------------------------------------------------------- */
+.flow{ list-style:none; margin:0; padding:0; }
+.flow li{ position:relative; padding:0 0 26px 34px; }
+.flow li::before{
+  content:attr(data-no); position:absolute; left:0; top:5px; width:24px; height:24px; border-radius:50%;
+  background:var(--azuki); color:#fff; font-family:var(--f-num); font-size:11px; font-weight:600;
+  display:grid; place-content:center;
+}
+.flow li::after{ content:""; position:absolute; left:11.5px; top:31px; bottom:4px; width:1px; background:var(--rule); }
+.flow li:last-child{ padding-bottom:0; }
+.flow li:last-child::after{ display:none; }
+.flow h3{ font-family:var(--f-disp); font-weight:800; font-size:17px; margin:0 0 4px; }
+.flow p{ margin:0; font-size:14px; color:var(--soft); }
+
+/* 注意喚起 ---------------------------------------------------- */
+.warn{ border:2px solid var(--alert); border-radius:12px; padding:18px; background:var(--card); }
+.sec--card .warn{ background:var(--bg); }
+.warn h3{ font-family:var(--f-disp); font-weight:800; font-size:16.5px; color:var(--alert); margin:0 0 8px; }
+.warn p{ font-size:13.5px; margin:0 0 8px; }
+.warn p:last-child{ margin:0; }
+
+/* フッター ---------------------------------------------------- */
+.foot{ background:var(--ink); color:#C0B2B6; padding:36px 0 118px; font-size:13px; }
+.foot a{ color:#C0B2B6; }
+.foot__brand{ font-family:var(--f-disp); font-weight:800; font-size:17px; color:#fff; margin:0 0 14px; }
+.foot dl{ display:grid; grid-template-columns:5.5em 1fr; gap:5px 12px; margin:0 0 18px; }
+.foot dt{ color:#7E6E73; }
+.foot dd{ margin:0; }
+.copy{ border-top:1px solid #3A2F33; padding-top:14px; font-family:var(--f-num); font-size:10.5px; color:#7E6E73; }
+
+/* 固定CTA ----------------------------------------------------- */
+.dock{
+  position:fixed; left:0; right:0; bottom:0; z-index:60;
+  background:rgba(255,255,255,.96); backdrop-filter:blur(8px);
+  border-top:1px solid var(--rule); padding:10px 0 calc(10px + env(safe-area-inset-bottom));
+}
+.dock .cta{ font-size:16px; padding:15px 20px; }
+
+.reveal{ opacity:0; transform:translateY(12px); transition:opacity .5s ease, transform .5s ease; }
+.reveal.is-in{ opacity:1; transform:none; }
+@media(prefers-reduced-motion:reduce){
+  *{ transition:none !important; animation:none !important; }
+  .reveal{ opacity:1; transform:none; }
+  html{ scroll-behavior:auto; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ ファーストビュー ============ -->
+<header class="fv">
+  <div class="col">
+    <p class="fv__co">スマートソーシャル株式会社が直接募集しています（求人サイト経由ではありません）</p>
+    <h1>子どもが寝たあとの<br><em>30分</em>から、<br>在宅でデータ入力。</h1>
+    <p class="fv__sub">報酬もやることも、このページに全部書きました。読んでから決めてください。</p>
+
+    <dl class="facts">
+      <div><dt>報酬</dt><dd><span class="num">1件 【00】円</span><small>出来高制。入力した件数の分だけお支払いします</small></dd></div>
+      <div><dt>場所</dt><dd>ご自宅<small>全国どこからでも。出社はありません</small></dd></div>
+      <div><dt>時間</dt><dd>週1日・1日30分〜<small>時間帯の指定なし。1件ごとに中断できます</small></dd></div>
+      <div><dt>費用</dt><dd><span class="num">0円</span><small>登録料・教材費・システム利用料はいただきません</small></dd></div>
+    </dl>
+
+    <a class="cta" href="https://lin.ee/o7dJ7I7">LINEで話を聞いてみる<small>友だち追加だけ・30秒</small></a>
+    <p class="cta-note">追加後、条件をまとめてお送りします。<br>その場で契約になることはありません。</p>
+  </div>
+</header>
+
+<!-- ============ 生活の時間帯 ============ -->
+<section class="sec">
+  <div class="col">
+    <p class="eyebrow">WHEN</p>
+    <h2 class="h2">みなさん、この時間に。</h2>
+    <p class="lead">納期は依頼から【5】日あります。1件ずつ保存できるので、途中で呼ばれても止められます。</p>
+
+    <div class="slots">
+      <div class="slot reveal"><span class="slot__t">9:00</span><span>
+        <b>子どもを送り出したあと</b>
+        <small>家事を片付けてから、お昼までに30分だけ。いちばん多い時間帯です。</small></span></div>
+      <div class="slot reveal"><span class="slot__t">14:00</span><span>
+        <b>お迎えまでの空き時間</b>
+        <small>15分あれば数件は終わります。区切りのいいところで閉じてください。</small></span></div>
+      <div class="slot reveal"><span class="slot__t">21:00</span><span>
+        <b>寝かしつけのあと</b>
+        <small>夜のほうが集中できるという方も。深夜・早朝の作業も自由です。</small></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 扶養シミュレーター ============ -->
+<section class="sec sec--card">
+  <div class="col">
+    <p class="eyebrow">FAMILY BUDGET</p>
+    <h2 class="h2">扶養の範囲で働きたい方へ。</h2>
+    <p class="lead">このお仕事は業務委託です。パート・アルバイトの給与とは、扶養の判定のしかたが違います。目安を出せるようにしました。</p>
+
+    <div class="fuyou reveal">
+      <div class="fuyou__head">扶養の範囲かどうか、見てみる</div>
+      <div class="fuyou__body">
+        <div class="fuyou__lab">
+          <span>1か月に受け取る報酬</span>
+          <b><span id="mVal">30,000</span>円</b>
+        </div>
+        <input type="range" id="monthly" min="0" max="150000" step="5000" value="30000" aria-label="1か月に受け取る報酬">
+
+        <div class="fuyou__year">
+          <span>1年間では</span>
+          <b><span id="yVal">360,000</span>円</b>
+        </div>
+
+        <div class="gauge">
+          <div class="gauge__top">
+            <span class="gauge__name">税金の扶養（配偶者控除）</span>
+            <span class="gauge__lim">上限 <span id="limTax">62</span>万円</span>
+          </div>
+          <div class="gauge__bar"><div class="gauge__fill" id="barTax"></div></div>
+          <p class="gauge__msg" id="msgTax"></p>
+        </div>
+
+        <div class="gauge">
+          <div class="gauge__top">
+            <span class="gauge__name">社会保険の扶養</span>
+            <span class="gauge__lim">上限 <span id="limIns">130</span>万円</span>
+          </div>
+          <div class="gauge__bar"><div class="gauge__fill" id="barIns"></div></div>
+          <p class="gauge__msg" id="msgIns"></p>
+        </div>
+
+        <p class="fuyou__note">
+          業務委託の報酬は給与ではないため、「103万円」「136万円」といった給与ベースの基準はそのまま当てはまりません。税金の扶養は<b>報酬から必要経費（通信費など）を引いた金額</b>で判定するため、実際にはこの表示より余裕があります。<br>
+          社会保険の扶養は、経費を引くかどうかの扱いが加入先の健康保険組合等によって異なります。<b>最終的な判断は、ご加入の健康保険とお住まいの税務署に必ずご確認ください。</b>このシミュレーターは【2026年分】の基準にもとづく目安です。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 用意するもの ============ -->
+<section class="sec">
+  <div class="col">
+    <p class="eyebrow">WHAT YOU NEED</p>
+    <h2 class="h2">用意するものは3つ。</h2>
+    <p class="lead">道具の購入や、有料ソフトの契約は必要ありません。</p>
+
+    <ul class="needs">
+      <li><span class="needs__ic">1</span><span>
+        <b>スマートフォン</b>
+        <small>作業はブラウザ上で行います。アプリのインストールは不要です。入力量の多い案件はパソコンのほうが楽だという声もあります。</small></span></li>
+      <li><span class="needs__ic">2</span><span>
+        <b>インターネット回線</b>
+        <small>Wi-Fiでもモバイル回線でも構いません。通信料のみご負担ください。</small></span></li>
+      <li><span class="needs__ic">3</span><span>
+        <b>ご本人名義の銀行口座</b>
+        <small>報酬の振込に使います。契約の段階で本人確認書類の提出をお願いしています。</small></span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ なぜ募集しているか ============ -->
+<section class="sec sec--card">
+  <div class="col">
+    <div class="why reveal">
+      <h3>なぜ、当社がこの募集をしているのか</h3>
+      <p>当社はシステム開発を本業としており、お客様からお預かりするデータ処理が年々増えています。社内だけでは追いつかないため、在宅で作業してくださる方にお願いしています。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 募集要項 ============ -->
+<section class="sec">
+  <div class="col">
+    <p class="eyebrow">CONDITIONS</p>
+    <h2 class="h2">募集要項</h2>
+    <p class="lead">LINEでも同じ内容をPDFでお送りします。契約前に必ずご確認ください。</p>
+
+    <div class="table reveal">
+      <dl>
+        <div class="table__row"><dt>募集者</dt><dd>スマートソーシャル株式会社（法人番号 8011101059264）</dd></div>
+        <div class="table__row"><dt>業務内容</dt><dd>在宅でのデータ入力（アンケート入力／名刺・顧客データ入力／商品情報の登録）</dd></div>
+        <div class="table__row"><dt>契約形態</dt><dd>業務委託契約。雇用契約ではないため、社会保険・雇用保険・有給休暇の適用はありません。</dd></div>
+        <div class="table__row"><dt>就業場所</dt><dd>ご自宅（当社への出社はありません）</dd></div>
+        <div class="table__row"><dt>報酬</dt><dd>案件により <b>【18】〜【90】円／件</b>（出来高制）</dd></div>
+        <div class="table__row"><dt>支払日</dt><dd>毎月末日締め、翌月【15】日に指定口座へお振込み（振込手数料は当社負担／最低支払額なし）</dd></div>
+        <div class="table__row"><dt>稼働時間</dt><dd>指定なし。納期内であればいつ作業しても構いません。</dd></div>
+        <div class="table__row"><dt>契約期間</dt><dd>【1年（更新あり）】。途中終了はいつでも可能で、違約金はありません。</dd></div>
+        <div class="table__row"><dt>応募資格</dt><dd>【18】歳以上の方。経験・資格は不要です。</dd></div>
+        <div class="table__row"><dt>費用負担</dt><dd>ありません。登録料・教材費・研修費・システム利用料など、当社から金銭を請求することは一切ありません。</dd></div>
+        <div class="table__row"><dt>データの扱い</dt><dd>作業は当社システム上で行い、データをお手元の端末に保存することはできません。契約時に秘密保持の条項に同意いただきます。</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Q&A ============ -->
+<section class="sec sec--card">
+  <div class="col">
+    <p class="eyebrow">Q &amp; A</p>
+    <h2 class="h2">よく聞かれることに、先に答えます。</h2>
+
+    <div class="thread">
+      <p class="msg msg--q reveal">結局、お金がかかるんじゃないですか？</p>
+      <p class="msg msg--a reveal">かかりません。登録料・教材費・サポート費など、名目を問わずご請求することはありません。「先に費用を」とお伝えすることは絶対にないので、そうした連絡があればお疑いください。</p>
+
+      <p class="msg msg--q reveal">扶養から外れませんか？</p>
+      <p class="msg msg--a reveal">件数を調整して、ご希望の金額に収めていただけます。「今月はここまで」とご連絡いただければ、その月の依頼を止めます。上の目安もご覧ください。</p>
+
+      <p class="msg msg--q reveal">タイピングが遅いのですが、応募できますか。</p>
+      <p class="msg msg--a reveal">できます。入力の速さで合否を決めることはありません。最初は少ない件数からお願いし、慣れてきたら増やしていきます。ゆっくりでも、正確なほうがありがたいです。</p>
+
+      <p class="msg msg--q reveal">昼間に電話がかかってくるのは困ります。</p>
+      <p class="msg msg--a reveal">こちらからお電話することはありません。依頼も連絡もすべてLINEです。既読がつかなくても催促はしませんので、ご都合のよいときにご返信ください。</p>
+
+      <p class="msg msg--q reveal">どのくらいの収入になりますか？</p>
+      <p class="msg msg--a reveal">出来高なので作業量によります。1日1時間・週5日で月【00,000】円ほどの方が多いです。「誰でも月〇十万円」といった保証は一切していません。</p>
+
+      <p class="msg msg--q reveal">入力を間違えたら、弁償ですか。</p>
+      <p class="msg msg--a reveal">なりません。納品後にこちらで確認し、修正が必要な箇所はご連絡します。費用をご請求することはありません。</p>
+
+      <p class="msg msg--q reveal">身分証を出すのが不安です。</p>
+      <p class="msg msg--a reveal">報酬の振込と契約書の作成に必要なため、契約の段階でご提出をお願いしています。友だち追加の時点では不要です。提出先と保管方法は、そのときに書面でご説明します。</p>
+
+      <p class="msg msg--q reveal">LINEを追加したら、すぐ契約ですか？</p>
+      <p class="msg msg--a reveal">なりません。まず条件をまとめた資料をお送りします。読んで合わないと思われたら、そのままブロックしていただいて構いません。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 流れ ============ -->
+<section class="sec">
+  <div class="col">
+    <p class="eyebrow">STEPS</p>
+    <h2 class="h2">応募から開始まで</h2>
+    <p class="lead">どの段階でやめても、費用は発生しません。</p>
+
+    <ol class="flow">
+      <li data-no="1" class="reveal"><h3>LINEを友だち追加</h3><p>お名前の入力も不要です。追加した時点では、何も決まりません。</p></li>
+      <li data-no="2" class="reveal"><h3>条件を確認</h3><p>業務内容・報酬・契約書の内容をまとめてお送りします。質問はここで全部どうぞ。</p></li>
+      <li data-no="3" class="reveal"><h3>入力のお試し</h3><p>実際の画面で【30】件ほど入力していただきます。この分も報酬をお支払いします。</p></li>
+      <li data-no="4" class="reveal"><h3>契約・初回の依頼</h3><p>契約書をオンラインで取り交わし、少なめの件数から始めます。</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ 注意喚起 ============ -->
+<section class="sec sec--card">
+  <div class="col">
+    <div class="warn reveal">
+      <h3>「先に費用を」という連絡にご注意ください</h3>
+      <p>在宅ワークの募集を装い、教材費・サポート費・システム登録料を先に請求する事業者があります。当社が金銭をご請求することは、いかなる名目でもありません。</p>
+      <p>当社名をかたる連絡を受けた場合や、判断に迷う場合は、消費者ホットライン <b>188</b>（いやや）またはお住まいの消費生活センターへご相談ください。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 応募 ============ -->
+<section class="sec">
+  <div class="col">
+    <p class="eyebrow">ENTRY</p>
+    <h2 class="h2">まずは、話を聞くところから。</h2>
+    <p class="lead">友だち追加だけで、個人情報の入力はありません。</p>
+    <a class="cta" href="https://lin.ee/o7dJ7I7">LINEで話を聞いてみる<small>友だち追加だけ・30秒</small></a>
+    <p class="cta-note">受付：平日 9:00–18:00／返信は【2営業日】以内</p>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="col">
+    <p class="foot__brand">スマートソーシャル株式会社</p>
+    <dl>
+      <dt>所在地</dt><dd>〒141-0031　東京都品川区西五反田8-11-21 五反田TRビル6階</dd>
+      <dt>代表者</dt><dd>代表取締役 酒井 禎雄</dd>
+      <dt>設立</dt><dd>2011年3月</dd>
+      <dt>法人番号</dt><dd>8011101059264</dd>
+      <dt>事業内容</dt><dd>【システム開発】</dd>
+      <dt>連絡先</dt><dd><a href="mailto:info@example.jp">【info@example.jp】</a></dd>
+    </dl>
+    <p><a href="privacy.html">個人情報の取り扱いについて</a></p>
+    <p class="copy">© <span id="year">2026</span> Smart Social, Inc.</p>
+  </div>
+</footer>
+
+<div class="dock">
+  <div class="col">
+    <a class="cta" href="https://lin.ee/o7dJ7I7">LINEで話を聞いてみる<small>30秒</small></a>
+  </div>
+</div>
+
+<script>
+(function(){
+  /* =========================================================
+     扶養の基準額（2026年分）— 制度改正のたびに更新してください
+     LIMIT_TAX : 配偶者控除の所得要件（合計所得金額の上限）
+     LIMIT_INS : 社会保険の被扶養者の年収の目安
+     ========================================================= */
+  var LIMIT_TAX = 620000;
+  var LIMIT_INS = 1300000;
+
+  var fmt = function(n){ return Math.round(n).toLocaleString('ja-JP'); };
+  var monthly = document.getElementById('monthly');
+
+  document.getElementById('limTax').textContent = Math.round(LIMIT_TAX/10000);
+  document.getElementById('limIns').textContent = Math.round(LIMIT_INS/10000);
+
+  function gauge(barId, msgId, year, limit, okText, ngText){
+    var bar = document.getElementById(barId), msg = document.getElementById(msgId);
+    var pct = Math.min(100, year / limit * 100);
+    var over = year > limit;
+    bar.style.width = pct + '%';
+    bar.classList.toggle('over', over);
+    msg.innerHTML = over
+      ? '<b class="over">上限を超えます。</b>' + ngText
+      : '<b>範囲内です。</b>' + okText.replace('{r}', fmt(limit - year));
+  }
+
+  function update(){
+    var m = parseInt(monthly.value, 10);
+    var y = m * 12;
+    document.getElementById('mVal').textContent = fmt(m);
+    document.getElementById('yVal').textContent = fmt(y);
+
+    gauge('barTax','msgTax', y, LIMIT_TAX,
+      'あと{r}円の余裕があります（必要経費を引く前の金額です）。',
+      '件数を減らして調整できます。ご相談ください。');
+
+    gauge('barIns','msgIns', y, LIMIT_INS,
+      'あと{r}円の余裕があります。',
+      'ご加入の健康保険にご確認のうえ、件数をご相談ください。');
+  }
+  monthly.addEventListener('input', update);
+  update();
+
+  /* スクロール表示 */
+  var targets = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){ e.target.classList.add('is-in'); io.unobserve(e.target); }
+      });
+    }, { threshold:.15, rootMargin:'0px 0px -30px 0px' });
+    targets.forEach(function(t){ io.observe(t); });
+  } else {
+    targets.forEach(function(t){ t.classList.add('is-in'); });
+  }
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
