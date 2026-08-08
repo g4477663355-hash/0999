@@ -11,6 +11,17 @@
 <meta property="og:type" content="website">
 <meta property="og:image" content="ogp.jpg">
 
+
+<!-- TikTok Pixel Code Start -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for( var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script") ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+  ttq.load('D9RH7NBC77U75PNH3OGG');
+  ttq.page();
+}(window, document, 'ttq');
+</script>
+<!-- TikTok Pixel Code End -->
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=BIZ+UDPGothic:wght@400;700&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -228,7 +239,7 @@ input[type=range]{ width:100%; accent-color:var(--azuki); height:28px; }
       <div><dt>費用</dt><dd><span class="num">0円</span><small>登録料・教材費・システム利用料はいただきません</small></dd></div>
     </dl>
 
-    <a class="cta" href="https://lin.ee/o7dJ7I7">LINEで話を聞いてみる<small>友だち追加だけ・30秒</small></a>
+    <a class="cta" data-pos="ファーストビュー" href="https://lin.ee/o7dJ7I7">LINEで話を聞いてみる<small>友だち追加だけ・30秒</small></a>
     <p class="cta-note">追加後、条件をまとめてお送りします。<br>その場で契約になることはありません。</p>
   </div>
 </header>
@@ -425,7 +436,7 @@ input[type=range]{ width:100%; accent-color:var(--azuki); height:28px; }
     <p class="eyebrow">ENTRY</p>
     <h2 class="h2">まずは、話を聞くところから。</h2>
     <p class="lead">友だち追加だけで、個人情報の入力はありません。</p>
-    <a class="cta" href="https://lin.ee/o7dJ7I7">LINEで話を聞いてみる<small>友だち追加だけ・30秒</small></a>
+    <a class="cta" data-pos="応募セクション" href="https://lin.ee/o7dJ7I7">LINEで話を聞いてみる<small>友だち追加だけ・30秒</small></a>
     <p class="cta-note">受付：平日 9:00–18:00／返信は【2営業日】以内</p>
   </div>
 </section>
@@ -448,7 +459,7 @@ input[type=range]{ width:100%; accent-color:var(--azuki); height:28px; }
 
 <div class="dock">
   <div class="col">
-    <a class="cta" href="https://lin.ee/o7dJ7I7">LINEで話を聞いてみる<small>30秒</small></a>
+    <a class="cta" data-pos="下部固定ボタン" href="https://lin.ee/o7dJ7I7">LINEで話を聞いてみる<small>30秒</small></a>
   </div>
 </div>
 
@@ -508,6 +519,31 @@ input[type=range]{ width:100%; accent-color:var(--azuki); height:28px; }
   } else {
     targets.forEach(function(t){ t.classList.add('is-in'); });
   }
+  /* =========================================================
+     TikTok：LINEボタンのクリックを「お問い合わせ（Contact）」として計測
+     ・どのボタンが押されたかを content_name に入れて区別する
+     ・同じセッション内での二重計測を防ぐ
+     ・最適化目標を変えた場合は EVENT を書き換える
+       （リード獲得＝SubmitForm／登録完了＝CompleteRegistration）
+     ========================================================= */
+  var EVENT = 'Contact';
+  var fired = {};
+  var ctas = document.querySelectorAll('a.cta');
+  for (var k = 0; k < ctas.length; k++){
+    ctas[k].addEventListener('click', function(){
+      var pos = this.getAttribute('data-pos') || '不明';
+      if (fired[pos]) return;
+      fired[pos] = true;
+      if (window.ttq && typeof window.ttq.track === 'function'){
+        window.ttq.track(EVENT, {
+          content_name: 'LINE友だち追加',
+          content_id: pos,
+          description: '在宅データ入力LP'
+        });
+      }
+    });
+  }
+
   document.getElementById('year').textContent = new Date().getFullYear();
 })();
 </script>
