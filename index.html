@@ -11,12 +11,11 @@
 <meta property="og:type" content="website">
 <meta property="og:image" content="ogp.jpg">
 
-
 <!-- TikTok Pixel Code Start -->
 <script>
 !function (w, d, t) {
   w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for( var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script") ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
-  ttq.load('D9RH7NBC77U75PNH3OGG');
+  ttq.load('D7B1G93C77U88C4AABQG');
   ttq.page();
 }(window, document, 'ttq');
 </script>
@@ -184,7 +183,7 @@ input[type=range]{ width:100%; accent-color:var(--azuki); height:28px; }
   background:var(--azuki); color:#fff; font-family:var(--f-num); font-size:11px; font-weight:600;
   display:grid; place-content:center;
 }
-.flow li::after{ content:""; position:absolute; left:11.5px; top:31px; bottom:4px; width:1px; background:var(--rule); }
+.flow li::after{ content:"absolute"; left:11.5px; top:31px; bottom:4px; width:1px; background:var(--rule); }
 .flow li:last-child{ padding-bottom:0; }
 .flow li:last-child::after{ display:none; }
 .flow h3{ font-family:var(--f-disp); font-weight:800; font-size:17px; margin:0 0 4px; }
@@ -519,27 +518,41 @@ input[type=range]{ width:100%; accent-color:var(--azuki); height:28px; }
   } else {
     targets.forEach(function(t){ t.classList.add('is-in'); });
   }
+  
   /* =========================================================
      TikTok：LINEボタンのクリックを「お問い合わせ（Contact）」として計測
-     ・どのボタンが押されたかを content_name に入れて区別する
-     ・同じセッション内での二重計測を防ぐ
-     ・最適化目標を変えた場合は EVENT を書き換える
-       （リード獲得＝SubmitForm／登録完了＝CompleteRegistration）
      ========================================================= */
   var EVENT = 'Contact';
   var fired = {};
   var ctas = document.querySelectorAll('a.cta');
+  
   for (var k = 0; k < ctas.length; k++){
-    ctas[k].addEventListener('click', function(){
+    ctas[k].addEventListener('click', function(e){
+      // デフォルトのページ遷移をストップ
+      e.preventDefault();
+      
+      var targetUrl = this.getAttribute('href');
       var pos = this.getAttribute('data-pos') || '不明';
-      if (fired[pos]) return;
-      fired[pos] = true;
+      
+      // 遷移を実行する関数
+      var goNext = function() {
+        window.location.href = targetUrl;
+      };
+
       if (window.ttq && typeof window.ttq.track === 'function'){
-        window.ttq.track(EVENT, {
-          content_name: 'LINE友だち追加',
-          content_id: pos,
-          description: '在宅データ入力LP'
-        });
+        if (!fired[pos]) {
+          fired[pos] = true;
+          window.ttq.track(EVENT, {
+            content_name: 'LINE友だち追加',
+            content_id: pos,
+            description: '在宅データ入力LP'
+          });
+        }
+        // ピクセル発火の通信時間を確保するため、300ミリ秒遅延させてから遷移
+        setTimeout(goNext, 300);
+      } else {
+        // ttqがロードされていない場合はそのまま遷移
+        goNext();
       }
     });
   }
