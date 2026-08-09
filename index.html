@@ -239,7 +239,7 @@ input[type=range]{ width:100%; accent-color:var(--azuki); height:28px; }
       <div><dt>費用</dt><dd><span class="num">0円</span><small>登録料・教材費・システム利用料はいただきません</small></dd></div>
     </dl>
 
-    <a class="cta" data-pos="ファーストビュー" href="https://lin.ee/o7dJ7I7">LINEで話を聞いてみる<small>友だち追加だけ・30秒</small></a>
+    <a class="cta" data-pos="ファーストビュー" href="https://lin.ee/o7dJ7I7" target="_blank" rel="noopener">LINEで話を聞いてみる<small>友だち追加だけ・30秒</small></a>
     <p class="cta-note">追加後、条件をまとめてお送りします。<br>その場で契約になることはありません。</p>
   </div>
 </header>
@@ -436,7 +436,7 @@ input[type=range]{ width:100%; accent-color:var(--azuki); height:28px; }
     <p class="eyebrow">ENTRY</p>
     <h2 class="h2">まずは、話を聞くところから。</h2>
     <p class="lead">友だち追加だけで、個人情報の入力はありません。</p>
-    <a class="cta" data-pos="応募セクション" href="https://lin.ee/o7dJ7I7">LINEで話を聞いてみる<small>友だち追加だけ・30秒</small></a>
+    <a class="cta" data-pos="応募セクション" href="https://lin.ee/o7dJ7I7" target="_blank" rel="noopener">LINEで話を聞いてみる<small>友だち追加だけ・30秒</small></a>
     <p class="cta-note">受付：平日 9:00–18:00／返信は【2営業日】以内</p>
   </div>
 </section>
@@ -459,7 +459,7 @@ input[type=range]{ width:100%; accent-color:var(--azuki); height:28px; }
 
 <div class="dock">
   <div class="col">
-    <a class="cta" data-pos="下部固定ボタン" href="https://lin.ee/o7dJ7I7">LINEで話を聞いてみる<small>30秒</small></a>
+    <a class="cta" data-pos="下部固定ボタン" href="https://lin.ee/o7dJ7I7" target="_blank" rel="noopener">LINEで話を聞いてみる<small>30秒</small></a>
   </div>
 </div>
 
@@ -561,8 +561,7 @@ input[type=range]{ width:100%; accent-color:var(--azuki); height:28px; }
   var EVENT = 'Contact';
   var fired = {};
   var ctas = document.querySelectorAll('a.cta');
-  for (var k = 0; k < ctas.length; k++){
-    ctas[k].addEventListener('click', function(){
+  var send = function(){
       var pos = this.getAttribute('data-pos') || '不明';
       if (fired[pos]) return;
       fired[pos] = true;
@@ -576,7 +575,11 @@ input[type=range]{ width:100%; accent-color:var(--azuki); height:28px; }
       } else {
         if (ttDebug) ttDebug('送信できず（ttq が存在しません）');
       }
-    });
+  };
+  for (var k = 0; k < ctas.length; k++){
+    /* pointerdown＝指を置いた瞬間。click より早く、遷移前に送信できる */
+    ctas[k].addEventListener('pointerdown', send);
+    ctas[k].addEventListener('click', send);   /* キーボード操作などの保険 */
   }
 
   document.getElementById('year').textContent = new Date().getFullYear();
